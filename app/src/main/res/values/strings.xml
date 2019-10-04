@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Learning Program</string>
+    <string name="all">Все</string>
+    <string name="week">Неделя</string>
+    <string-array name="modes">
+        <item>Без группировки</item>
+        <item>Группировать по неделям</item>
+    </string-array>
+</resources>
