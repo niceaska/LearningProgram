@@ -6,34 +6,22 @@
 
     <TextView
         android:id="@+id/number"
-        android:layout_width="wrap_content"
-        android:layout_margin="20dp"
         tools:text="test"
-        android:layout_height="wrap_content" />
+        style="@style/number" />
 
     <TextView
         android:id="@+id/data"
-        android:layout_alignTop="@id/number"
-        android:layout_toEndOf="@id/number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="test"/>
+        tools:text="test"
+        style="@style/data" />
 
     <TextView
         android:id="@+id/subject"
-        android:layout_below="@id/lector"
-        android:layout_width="wrap_content"
-        android:layout_margin="10dp"
-        android:textSize="20sp"
         tools:text="test"
-    android:layout_height="wrap_content" />
+        style="@style/subject" />
 
     <TextView
         android:id="@+id/lector"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="10dp"
         tools:text="test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        style="@style/lector_style" />
 
 </RelativeLayout>

@@ -8,20 +8,13 @@
 
     <Spinner
         android:id="@+id/spinner_lectors"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        style="@style/spinner_style" />
 
     <Spinner
         android:id="@+id/display_mode_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
+        style="@style/spinner_style" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#000000" />
+    <View style="@style/single_line" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/learn"

@@ -8,4 +8,44 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="single_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">#000000</item>
+    </style>
+
+    <style name="spinner_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+    <style name="lector_style">
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="subject">
+        <item name="android:layout_below">@id/lector</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="data">
+        <item name="android:layout_alignTop">@id/number</item>
+        <item name="android:layout_toEndOf">@id/number</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="number">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_margin">20dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 </resources>
