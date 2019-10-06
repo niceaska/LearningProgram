@@ -2,6 +2,7 @@ package ru.niceaska.learningprogram;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -24,9 +25,9 @@ public class LearningProgramAdapter extends RecyclerView.Adapter<LearningProgram
     private Context mContext;
     private int mode = NO_GROUPED;
 
-
     LearningProgramAdapter(Context context) {
-        mContext = context;
+
+        this.mContext = context;
     }
 
 
@@ -136,11 +137,26 @@ public class LearningProgramAdapter extends RecyclerView.Adapter<LearningProgram
             mSubject = itemView.findViewById(R.id.subject);
         }
 
-        void bindView(Lecture lecture) {
+        void bindView(final Lecture lecture) {
             mNumber.setText(String.valueOf(lecture.getmNumber()));
             mDate.setText(lecture.getmDate());
             mSubject.setText(lecture.getmSubject());
             mLector.setText(lecture.getmLector());
+            itemView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    switch (event.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            mSubject.setText(lecture.getDescription());
+                            break;
+                        case MotionEvent.ACTION_UP:
+                        case MotionEvent.ACTION_CANCEL:
+                            mSubject.setText(lecture.getmSubject());
+                            break;
+                    }
+                    return true;
+                }
+            });
         }
     }
 
