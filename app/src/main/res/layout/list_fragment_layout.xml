@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <Spinner
+        android:id="@+id/spinner_lectors"
+        style="@style/spinner_style" />
+
+    <Spinner
+        android:id="@+id/display_mode_spinner"
+        style="@style/spinner_style" />
+
+    <View style="@style/single_line" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/learn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

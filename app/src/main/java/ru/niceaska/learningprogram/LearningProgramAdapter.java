@@ -2,7 +2,6 @@ package ru.niceaska.learningprogram;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -22,10 +21,12 @@ public class LearningProgramAdapter extends RecyclerView.Adapter<LearningProgram
 
     private List<Lecture> mLectures;
     private List<Object> mObjects;
+    private DetatiledShowHolder listner;
     private Context mContext;
     private int mode = NO_GROUPED;
 
-    LearningProgramAdapter(Context context) {
+    LearningProgramAdapter(DetatiledShowHolder listner, Context context) {
+        this.listner = listner;
 
         this.mContext = context;
     }
@@ -35,7 +36,7 @@ public class LearningProgramAdapter extends RecyclerView.Adapter<LearningProgram
         this.mode = mode;
     }
 
-    public void setmLectures(List<Lecture> Lectures) {
+    public void setLectures(List<Lecture> Lectures) {
         if (mLectures == null) {
             this.mLectures = new ArrayList<>();
             this.mObjects = new ArrayList<>();
@@ -93,7 +94,7 @@ public class LearningProgramAdapter extends RecyclerView.Adapter<LearningProgram
         }
         View view =  LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_layout, parent, false);
-        return new LectureHolder(view);
+        return new LectureHolder(view, listner);
     }
 
 
@@ -128,33 +129,26 @@ public class LearningProgramAdapter extends RecyclerView.Adapter<LearningProgram
         private final TextView mDate;
         private final TextView mSubject;
         private final TextView mLector;
+        private final DetatiledShowHolder mListner;
 
-        LectureHolder(@NonNull View itemView) {
+        LectureHolder(@NonNull View itemView, DetatiledShowHolder listner) {
             super(itemView);
             mNumber = itemView.findViewById(R.id.number);
             mDate = itemView.findViewById(R.id.data);
             mLector = itemView.findViewById(R.id.lector);
             mSubject = itemView.findViewById(R.id.subject);
+            mListner = listner;
         }
 
         void bindView(final Lecture lecture) {
             mNumber.setText(String.valueOf(lecture.getmNumber()));
             mDate.setText(lecture.getmDate());
             mSubject.setText(lecture.getmSubject());
-            mLector.setText(lecture.getmLector());
-            itemView.setOnTouchListener(new View.OnTouchListener() {
+            mLector.setText(lecture.getLector());
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    switch (event.getAction()) {
-                        case MotionEvent.ACTION_DOWN:
-                            mSubject.setText(lecture.getDescription());
-                            break;
-                        case MotionEvent.ACTION_UP:
-                        case MotionEvent.ACTION_CANCEL:
-                            mSubject.setText(lecture.getmSubject());
-                            break;
-                    }
-                    return true;
+                public void onClick(View v) {
+                    mListner.showDetailed(lecture);
                 }
             });
         }

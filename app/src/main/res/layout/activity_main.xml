@@ -6,18 +6,8 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Spinner
-        android:id="@+id/spinner_lectors"
-        style="@style/spinner_style" />
-
-    <Spinner
-        android:id="@+id/display_mode_spinner"
-        style="@style/spinner_style" />
-
-    <View style="@style/single_line" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/learn"
+    <FrameLayout
+        android:id="@+id/list_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

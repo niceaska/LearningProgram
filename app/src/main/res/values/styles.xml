@@ -35,6 +35,15 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="description">
+        <item name="android:layout_below">@id/subject</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
     <style name="data">
         <item name="android:layout_alignTop">@id/number</item>
         <item name="android:layout_toEndOf">@id/number</item>
