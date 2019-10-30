@@ -3,6 +3,7 @@ package ru.niceaska.learningprogram;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,6 +74,9 @@ public class LecturesListFragment extends Fragment implements DescriptionShowApp
                 showMoreInfo(lecture);
             }
         }, requireContext());
+        DividerItemDecoration deviderItemDecoration = new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(deviderItemDecoration);
+        recyclerView.setAdapter(learningProgramAdapter);
     }
 
     private void initSpinnerMods() {
@@ -119,11 +123,8 @@ public class LecturesListFragment extends Fragment implements DescriptionShowApp
         });
     }
 
-    private void initRecycleView() {
+    private void initRecycleViewContent() {
         learningProgramAdapter.setLectures(providerLerningProgram.mLectures);
-        DividerItemDecoration deviderItemDecoration = new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL);
-        recyclerView.addItemDecoration(deviderItemDecoration);
-        recyclerView.setAdapter(learningProgramAdapter);
     }
 
     @Override
@@ -140,7 +141,7 @@ public class LecturesListFragment extends Fragment implements DescriptionShowApp
         if (savedInstanceState != null) {
             listState = savedInstanceState.getParcelable(LIST_STATE_KEY);
             providerLerningProgram.mLectures = savedInstanceState.<Lecture>getParcelableArrayList(LIST_LECTURES_KEY);
-            initRecycleView();
+            initRecycleViewContent();
             initSpinnerMods();
             initSpinnerLectors();
         }
@@ -178,9 +179,10 @@ public class LecturesListFragment extends Fragment implements DescriptionShowApp
 
             if (fragment != null) {
                 if (lectures != null) {
-                    fragment.initRecycleView();
+                    fragment.initRecycleViewContent();
                     fragment.initSpinnerMods();
                     fragment.initSpinnerLectors();
+                    Log.d("post", "onPostExecute: ");
                 } else {
                     Toast.makeText(fragment.requireContext(), R.string.load_error, Toast.LENGTH_LONG).show();
                 }
