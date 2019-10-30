@@ -3,7 +3,6 @@ package ru.niceaska.learningprogram;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -182,7 +181,6 @@ public class LecturesListFragment extends Fragment implements DescriptionShowApp
                     fragment.initRecycleViewContent();
                     fragment.initSpinnerMods();
                     fragment.initSpinnerLectors();
-                    Log.d("post", "onPostExecute: ");
                 } else {
                     Toast.makeText(fragment.requireContext(), R.string.load_error, Toast.LENGTH_LONG).show();
                 }
