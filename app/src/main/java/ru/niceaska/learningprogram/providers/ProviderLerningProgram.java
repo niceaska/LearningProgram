@@ -55,6 +55,7 @@ public class ProviderLerningProgram {
             Gson gson = new Gson();
             Lecture[] lectures = gson.fromJson(reader, Lecture[].class);
             mLectures = new ArrayList<Lecture>(Arrays.asList(lectures));
+            setWeekIndex(mLectures);
             return mLectures;
         } catch (IOException e) {
             e.printStackTrace();
@@ -62,5 +63,11 @@ public class ProviderLerningProgram {
         return null;
     }
 
+    private List<Lecture> setWeekIndex(List<Lecture> lectures) {
+        for (Lecture lecture : lectures) {
+            lecture.setWeekIndex();
+        }
+        return lectures;
+    }
 }
 

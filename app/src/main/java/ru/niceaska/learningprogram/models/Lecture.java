@@ -12,8 +12,7 @@ import java.util.List;
 
 public class Lecture implements Parcelable {
 
-    @Expose
-    private static final int LECTURES_PER_WEEK = 3;
+    private static transient final int LECTURES_PER_WEEK = 3;
 
 
     @SerializedName("number")
@@ -26,7 +25,7 @@ public class Lecture implements Parcelable {
     private final String mLector;
     @SerializedName("subtopics")
     private final List<String> description;
-    private final int weekIndex;
+    transient private int weekIndex;
 
 
     public Lecture(@NonNull String mNumber, @NonNull String mDate,
@@ -39,6 +38,9 @@ public class Lecture implements Parcelable {
         this.weekIndex = (Integer.parseInt(mNumber) - 1) / LECTURES_PER_WEEK;
     }
 
+    public void setWeekIndex() {
+        this.weekIndex = (Integer.parseInt(mNumber) - 1) / LECTURES_PER_WEEK;
+    }
 
     protected Lecture(Parcel in) {
         mNumber = in.readString();
@@ -59,6 +61,7 @@ public class Lecture implements Parcelable {
         dest.writeInt(weekIndex);
     }
 
+    @Expose
     public static final Creator<Lecture> CREATOR = new Creator<Lecture>() {
         @Override
         public Lecture createFromParcel(Parcel in) {
