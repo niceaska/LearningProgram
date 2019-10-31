@@ -1,4 +1,4 @@
-package ru.niceaska.learningprogram;
+package ru.niceaska.learningprogram.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,12 +10,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import ru.niceaska.learningprogram.R;
 import ru.niceaska.learningprogram.models.Lecture;
+import ru.niceaska.learningprogram.providers.ProviderLerningProgram;
 
 public class DetailedLectureFragment extends Fragment {
 
     private static final String LECTURE_TAG = "lectureTag";
-    private static final String DESCRIPTION_TAG = "descriptionTag";
 
     public static DetailedLectureFragment newInstance(Lecture lecture) {
 

@@ -1,4 +1,4 @@
-package ru.niceaska.learningprogram;
+package ru.niceaska.learningprogram.providers;
 
 import com.google.gson.Gson;
 
@@ -16,11 +16,11 @@ import ru.niceaska.learningprogram.models.Lecture;
 
 public class ProviderLerningProgram {
 
-    List<Lecture> mLectures;
+    public List<Lecture> mLectures;
 
     private static String LECTURES_URL = "http://landsovet.ru/learning_program.json";
 
-    List<String> provideLectors() {
+    public List<String> provideLectors() {
         Set<String> set = new HashSet<>();
 
         for (Lecture lect : mLectures) {
@@ -29,7 +29,7 @@ public class ProviderLerningProgram {
         return new ArrayList<>(set);
     }
 
-    String provideDesription(Lecture lecture) {
+    public String provideDesription(Lecture lecture) {
         StringBuilder stringBuilder = new StringBuilder();
         for (String s : lecture.getDescription()) {
             stringBuilder.append(s).append("\n");
@@ -37,7 +37,7 @@ public class ProviderLerningProgram {
         return new String(stringBuilder);
     }
 
-    List <Lecture> filterBy(String lector) {
+    public List<Lecture> filterBy(String lector) {
          List<Lecture> lectures = new ArrayList<>();
          for (Lecture l : mLectures) {
              String name = l.getLector();
@@ -48,7 +48,7 @@ public class ProviderLerningProgram {
         return lectures;
     }
 
-    List<Lecture> loadLectures() {
+    public List<Lecture> loadLectures() {
         try (Reader reader = new InputStreamReader(
                 new URL(LECTURES_URL).openConnection().getInputStream()
         );) {

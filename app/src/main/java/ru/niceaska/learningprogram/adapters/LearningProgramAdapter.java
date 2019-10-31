@@ -1,4 +1,4 @@
-package ru.niceaska.learningprogram;
+package ru.niceaska.learningprogram.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.niceaska.learningprogram.R;
 import ru.niceaska.learningprogram.models.Lecture;
 
 public class LearningProgramAdapter extends RecyclerView.Adapter<LearningProgramAdapter.BaseViewHolder> {
@@ -25,7 +26,7 @@ public class LearningProgramAdapter extends RecyclerView.Adapter<LearningProgram
     private Context mContext;
     private int mode = NO_GROUPED;
 
-    LearningProgramAdapter(DetatiledShowHolder listner, Context context) {
+    public LearningProgramAdapter(DetatiledShowHolder listner, Context context) {
         this.listner = listner;
 
         this.mContext = context;

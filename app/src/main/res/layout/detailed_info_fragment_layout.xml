@@ -2,7 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:background="@android:color/white"
+    android:clickable="true"
+    android:layout_height="match_parent"
+    android:focusable="true">
 
     <TextView
         android:id="@+id/number"
@@ -23,6 +26,12 @@
         android:id="@+id/lector"
         style="@style/lector_style"
         tools:text="test" />
+
+    <View
+        android:id="@+id/sep_line"
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        style="@style/separate_line_style" />
 
     <TextView
         android:id="@+id/description"

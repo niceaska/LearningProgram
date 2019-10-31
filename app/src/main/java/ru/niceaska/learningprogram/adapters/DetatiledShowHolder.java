@@ -1,4 +1,4 @@
-package ru.niceaska.learningprogram;
+package ru.niceaska.learningprogram.adapters;
 
 import ru.niceaska.learningprogram.models.Lecture;
 

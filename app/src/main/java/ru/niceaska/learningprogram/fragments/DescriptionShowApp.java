@@ -1,4 +1,4 @@
-package ru.niceaska.learningprogram;
+package ru.niceaska.learningprogram.fragments;
 
 import ru.niceaska.learningprogram.models.Lecture;
 

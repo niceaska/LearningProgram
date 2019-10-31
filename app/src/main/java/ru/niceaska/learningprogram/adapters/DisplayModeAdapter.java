@@ -1,4 +1,4 @@
-package ru.niceaska.learningprogram;
+package ru.niceaska.learningprogram.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,7 +13,7 @@ import java.util.List;
 
 public class DisplayModeAdapter extends ArrayAdapter<String> {
 
-    DisplayModeAdapter(Context context, List <String> mods) {
+    public DisplayModeAdapter(Context context, List<String> mods) {
         super(context, android.R.layout.simple_list_item_1, mods);
     }
 

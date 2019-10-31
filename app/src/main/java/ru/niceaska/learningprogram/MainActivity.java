@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import ru.niceaska.learningprogram.fragments.DetailedLectureFragment;
+import ru.niceaska.learningprogram.fragments.LecturesListFragment;
 import ru.niceaska.learningprogram.models.Lecture;
 
 public class MainActivity extends AppCompatActivity implements ShowDetailed {
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements ShowDetailed {
         getSupportFragmentManager()
                 .beginTransaction()
                 .addToBackStack(null)
-                .replace(R.id.list_fragment, DetailedLectureFragment.newInstance(lecture))
+                .add(R.id.list_fragment, DetailedLectureFragment.newInstance(lecture))
                 .commit();
     }
 }

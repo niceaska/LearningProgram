@@ -1,4 +1,4 @@
-package ru.niceaska.learningprogram;
+package ru.niceaska.learningprogram.fragments;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -23,7 +23,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import ru.niceaska.learningprogram.R;
+import ru.niceaska.learningprogram.ShowDetailed;
+import ru.niceaska.learningprogram.adapters.DetatiledShowHolder;
+import ru.niceaska.learningprogram.adapters.DisplayModeAdapter;
+import ru.niceaska.learningprogram.adapters.LearningProgramAdapter;
+import ru.niceaska.learningprogram.adapters.LectorSpinnerAdapter;
 import ru.niceaska.learningprogram.models.Lecture;
+import ru.niceaska.learningprogram.providers.ProviderLerningProgram;
 
 public class LecturesListFragment extends Fragment implements DescriptionShowApp {
 
