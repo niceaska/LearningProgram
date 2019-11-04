@@ -42,7 +42,7 @@ public class ListFragmentPresenter {
         this.lectors = providerLerningProgram.provideLectors();
         Collections.sort(lectors);
         LecturesListFragment lecturesListFragment = lecturesListFragmentWeakReference.get();
-        if (lecturesListFragment != null) {
+        if (lecturesListFragment != null && lecturesListFragment.isAdded()) {
             String all = lecturesListFragment.getResources().getString(R.string.all);
             lectors.add(POSITION_ALL, all);
             lecturesListFragment.showLectors(lectors);
