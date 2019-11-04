@@ -55,7 +55,7 @@ public class ListFragmentPresenter {
         LecturesListFragment listFragment = lecturesListFragmentWeakReference.get();
         if (listFragment != null) {
             listFragment.changeAdapterMode(position);
-            listFragment.showLectures(providerLerningProgram.mLectures);
+            listFragment.showLectures(providerLerningProgram.getmLectures());
         }
     }
 
@@ -64,7 +64,7 @@ public class ListFragmentPresenter {
         LecturesListFragment listFragment = lecturesListFragmentWeakReference.get();
         if (listFragment != null) {
             if (position == 0) {
-                listFragment.showLectures(providerLerningProgram.mLectures);
+                listFragment.showLectures(providerLerningProgram.getmLectures());
             } else {
                 listFragment.showLectures(providerLerningProgram.filterBy(lectors.get(position)));
             }

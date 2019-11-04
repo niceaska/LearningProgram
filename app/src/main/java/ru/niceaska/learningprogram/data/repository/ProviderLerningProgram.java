@@ -19,7 +19,7 @@ import ru.niceaska.learningprogram.data.models.Lecture;
 
 public class ProviderLerningProgram {
 
-    public List<Lecture> mLectures;
+    private List<Lecture> mLectures;
 
     private static String LECTURES_URL = "http://landsovet.ru/learning_program.json";
 
@@ -75,6 +75,10 @@ public class ProviderLerningProgram {
         for (Lecture lecture : lectures) {
             lecture.setWeekIndex();
         }
+    }
+
+    public List<Lecture> getmLectures() {
+        return mLectures;
     }
 
     private static class LecturesLoaderTask extends AsyncTask<Void, Void, List<Lecture>> {
