@@ -37,8 +37,12 @@ public class ListFragmentPresenterTest {
 
     private ListFragmentPresenter listFragmentPresenter;
 
-    private List<String> modes = Arrays.asList("Без группировки", "По неделям");
-    private List<String> lectors = Arrays.asList("Соколов", "Леонидов", "Бильчук", "Кудрявцев");
+    private List<Lecture> lecturesDataSet = Arrays.asList(
+            new Lecture("1", "01.02.2019", "Вводное занятие", "Соколов", new ArrayList<String>()),
+            new Lecture("2", "02.02.2019", "View", "Леонидов", new ArrayList<String>()),
+            new Lecture("3", "03.02.2019", "Activity", "Бильчук", new ArrayList<String>()),
+            new Lecture("4", "04.02.2019", "Custom view", "Кудрявцев", new ArrayList<String>())
+    );
 
     @Before
     public void setUp() throws Exception {
@@ -81,10 +85,5 @@ public class ListFragmentPresenterTest {
         verifyNoMoreInteractions(listFragment);
     }
 
-    private List<Lecture> lecturesDataSet = Arrays.asList(
-            new Lecture("1", "01.02.2019", "Вводное занятие", "Соколов", new ArrayList<String>()),
-            new Lecture("2", "02.02.2019", "View", "Леонидов", new ArrayList<String>()),
-            new Lecture("3", "03.02.2019", "Activity", "Бильчук", new ArrayList<String>()),
-            new Lecture("4", "04.02.2019", "Custom view", "Кудрявцев", new ArrayList<String>())
-    );
+
 }
