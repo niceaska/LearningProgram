@@ -1,4 +1,4 @@
-package ru.niceaska.learningprogram.adapters;
+package ru.niceaska.learningprogram.presentation.view.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;

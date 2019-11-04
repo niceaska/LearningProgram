@@ -1,4 +1,4 @@
-package ru.niceaska.learningprogram.models;
+package ru.niceaska.learningprogram.data.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;

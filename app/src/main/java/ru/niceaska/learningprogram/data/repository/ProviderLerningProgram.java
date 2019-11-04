@@ -1,10 +1,13 @@
-package ru.niceaska.learningprogram.providers;
+package ru.niceaska.learningprogram.data.repository;
+
+import android.os.AsyncTask;
 
 import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.lang.ref.WeakReference;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +15,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import ru.niceaska.learningprogram.models.Lecture;
+import ru.niceaska.learningprogram.data.models.Lecture;
 
 public class ProviderLerningProgram {
 
@@ -48,26 +51,54 @@ public class ProviderLerningProgram {
         return lectures;
     }
 
-    public List<Lecture> loadLectures() {
+    private List<Lecture> getLectures() {
         try (Reader reader = new InputStreamReader(
                 new URL(LECTURES_URL).openConnection().getInputStream()
         );) {
             Gson gson = new Gson();
             Lecture[] lectures = gson.fromJson(reader, Lecture[].class);
-            mLectures = new ArrayList<Lecture>(Arrays.asList(lectures));
+            mLectures = Arrays.asList(lectures);
             setWeekIndex(mLectures);
-            return mLectures;
+            return new ArrayList<>(mLectures);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    private List<Lecture> setWeekIndex(List<Lecture> lectures) {
+    public void loadLectures(IOnDataLoadFinish listener) {
+        new LecturesLoaderTask(listener, this).execute();
+
+    }
+
+    private void setWeekIndex(List<Lecture> lectures) {
         for (Lecture lecture : lectures) {
             lecture.setWeekIndex();
         }
-        return lectures;
+    }
+
+    private static class LecturesLoaderTask extends AsyncTask<Void, Void, List<Lecture>> {
+
+        IOnDataLoadFinish listener;
+        WeakReference<ProviderLerningProgram> providerLerningProgramWeakReference;
+
+
+        public LecturesLoaderTask(IOnDataLoadFinish listener,
+                                  ProviderLerningProgram providerLerningProgram) {
+            this.listener = listener;
+            this.providerLerningProgramWeakReference = new WeakReference<>(providerLerningProgram);
+        }
+
+        @Override
+        protected List<Lecture> doInBackground(Void... voids) {
+            if (providerLerningProgramWeakReference.get() == null) return null;
+            return providerLerningProgramWeakReference.get().getLectures();
+        }
+
+        @Override
+        protected void onPostExecute(List<Lecture> lectures) {
+            listener.onDtataLoaded(lectures);
+        }
     }
 }
 

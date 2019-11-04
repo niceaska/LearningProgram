@@ -1,4 +1,4 @@
-package ru.niceaska.learningprogram.adapters;
+package ru.niceaska.learningprogram.presentation.view.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ru.niceaska.learningprogram.R;
-import ru.niceaska.learningprogram.models.Lecture;
+import ru.niceaska.learningprogram.data.models.Lecture;
 
 public class LearningProgramAdapter extends RecyclerView.Adapter<LearningProgramAdapter.BaseViewHolder> {
 

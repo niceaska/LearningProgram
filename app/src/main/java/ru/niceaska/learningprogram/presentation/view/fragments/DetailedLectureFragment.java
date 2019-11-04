@@ -1,4 +1,4 @@
-package ru.niceaska.learningprogram.fragments;
+package ru.niceaska.learningprogram.presentation.view.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,8 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import ru.niceaska.learningprogram.R;
-import ru.niceaska.learningprogram.models.Lecture;
-import ru.niceaska.learningprogram.providers.ProviderLerningProgram;
+import ru.niceaska.learningprogram.data.models.Lecture;
+import ru.niceaska.learningprogram.data.repository.ProviderLerningProgram;
 
 public class DetailedLectureFragment extends Fragment {
 
